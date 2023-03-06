@@ -1,0 +1,117 @@
+//bubble sort
+#include <iostream>
+using namespace std;
+
+void bubbleShort(int arr[], int n){
+  int i, j, temp;
+  for(i=0; i<n; i++){
+    for (j=0; j< n-i-1; j++){
+      if(arr[j] < arr[j+1]){
+        temp = arr[j];
+        arr[j]=arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+}
+int main() {
+  int array[100],n ,i, j;
+  cout << "Masukkan banyak elemen: ";
+  cin >>n;
+  cout << "Masukkan Nilai : \n";
+  for(i = 0; i<n; i++){
+    cin >> array[i];
+  }
+  bubbleShort(array, n);
+  cout << "Hasil pengurutan dengan algoritma bubble : \n";
+  for(i=0; i<n; i++){
+    cout << array[i] << " ";
+  }
+  cout << "\n";
+}
+
+//insertion
+#include <iostream>
+using namespace std;
+
+int main() {
+  int y;
+  cout << "Masukkan banyak array: ";
+  cin >> y;
+  int x[y];
+  for(int i = 0; i<y; i++){
+    cout << "masukkan angka ke " << i << " :";
+    cin >> x[i];
+    cout << endl;
+  }
+  for(int i = 0; i<y; i++){
+    int key = x[i];
+    int j = i-1;
+    while(j>=0 && x[j] < key){
+      x[j+1]=x[j];
+      j--;
+    }
+    x[j+1]=key;
+    cout << "Proses sorting"<<endl;
+    for(int m = 0; m<y; m++){
+      cout << x[m]<<" ";
+    }
+    cout << endl;
+}
+cout << "hasil akhir "<<endl;
+for(int m=0; m<y; m++){
+  cout << x[m]<< " ";
+  }
+}
+
+
+//selection
+#include <iostream>
+using namespace std;
+
+void selectionSort(int arr[], int n){
+  int i,j, minIndex, temp;
+  for(i=0; i<n-1; i++){
+    minIndex=i;
+    for(j= i+1; j<n; j++){
+      if(arr[j] > arr[minIndex]){
+        minIndex=j;
+        
+      }
+    }
+    temp = arr[minIndex];
+    arr[minIndex]=arr[i];
+    arr[i]=temp;
+    cout <<"iterasi ke - "<<i+1<<" :";
+    for(int k=0; k<n; k++){
+      cout << arr[k] << " ";
+  
+    }
+    cout << endl;
+    
+  }
+  
+}
+int main(){
+  int i,n;
+  cout << "masukkan jumlah elemen :  ";
+  cin >>n;
+  int arr[n];
+  cout << "Masukkan nilai elemen :\n";
+  for(i=0; i<n; i++){
+    cin>>arr[i];
+  }
+  cout <<"Data sebelum sorting : ";
+  for(i=0; i<n; i++){
+    cout << arr[i] << " ";
+    
+  }
+  cout << endl;
+  selectionSort(arr,n);
+  cout << "Data setelah sorting : ";
+  for(i=0; i<n; i++){
+    cout << arr[i] << " ";
+  }
+  return 0;
+  
+}
