@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+struct Node{
+int data;
+struct Node *left, *right;
+
+Node (int data){
+  this->data = data;
+  left = right = NULL;
+}
+};
+
+//preorder travelsal
+void preorderTravelsal(struct Node* node){
+  if(node == NULL) return;
+
+  cout << node->data <<" ";
+  preorderTravelsal(node->left);
+  preorderTravelsal(node->right);
+}
+ //postorder travelsal
+void postorderTravelsal(struct Node* node){
+  if(node == NULL) return;
+  postorderTravelsal(node->left);
+  postorderTravelsal(node->right);
+  cout << node->data <<" ";
+}
+
+//inorder travelsal
+void inorderTravelsal(struct Node* node){
+  if(node == NULL) return;
+  inorderTravelsal(node->left);
+  cout << node->data <<" ";
+  inorderTravelsal(node->right);
+  
+}
+
+int main(){
+  struct Node* root = new Node(18);
+  root->left = new Node(30);
+  root->right = new Node(33);
+  root->left->left = new Node (29);
+  root->left->right = new Node(32);
+
+  cout << "inorder travelsal output : ";
+  inorderTravelsal(root);
+
+  cout << "\npreorder travelsal output : ";
+  preorderTravelsal(root);
+
+  cout << "\npostorder travelsal output : ";
+  postorderTravelsal(root);
+}
